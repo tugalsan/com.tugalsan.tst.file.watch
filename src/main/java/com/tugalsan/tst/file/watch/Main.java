@@ -16,7 +16,14 @@ public class Main {
     //java --enable-preview --add-modules jdk.incubator.vector -jar target/com.tugalsan.tst.file.watch-1.0-SNAPSHOT-jar-with-dependencies.jar
     public static void main(String... s) {
         TS_ThreadSyncTrigger killTrigger = TS_ThreadSyncTrigger.of();
-        var file = Path.of("D:\\a.txt");
+        var file = Path.of("C:\\dat\\sql\\rql\\TS_LibRqlBufferUtils_autosqlweb2.json");
+
+        d.cr("main", "isLocked", TS_FileUtils.isFileLocked(file));
+
+        if (true) {
+            return;
+        }
+
         TS_FileWatchUtils.file(killTrigger, file, () -> {
             d.cr("main", "create detected", file);
         }, 60, TS_FileWatchUtils.Triggers.CREATE, TS_FileWatchUtils.Triggers.MODIFY);
