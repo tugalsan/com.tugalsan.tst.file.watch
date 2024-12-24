@@ -19,7 +19,7 @@ public class Main {
         var file = Path.of("D:\\a.txt");
         TS_FileWatchUtils.file(killTrigger, file, () -> {
             d.cr("main", "create detected", file);
-        }, TS_FileWatchUtils.Triggers.CREATE, TS_FileWatchUtils.Triggers.MODIFY);
+        }, 60, TS_FileWatchUtils.Triggers.CREATE, TS_FileWatchUtils.Triggers.MODIFY);
         TS_ThreadAsyncAwait.runUntil(killTrigger, Duration.ofMinutes(1), kt -> {
             TS_ThreadWait.seconds(d.className, killTrigger, 10);
             d.cr("main", "alive");
